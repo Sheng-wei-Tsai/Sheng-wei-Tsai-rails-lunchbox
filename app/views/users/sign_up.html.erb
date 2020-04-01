@@ -2,6 +2,13 @@
 <%# 原本為 User.new 把它搬到 sign_up @user 才可以重複使用 %>
 <%= form_for(@user, url: '/sign_up', method: 'post') do |f| %>
 
+    <% if @user.errors.any? %>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <%end%>
+      </ul>
+    <% end%>
     <div>
       <%= f.label :email %>
       <%= f.text_field :email %>
@@ -12,7 +19,7 @@
     </div>
     <div>
       <%= f.label :password_confirm, "password_confirm"%> 
-      <%= f.password_field :password_confirm%>
+      <%= f.password_field :password_confirmation%>
     </div>
 
     <div>

@@ -10,6 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ * require_tree  . 怕裡面有其他雜雜的檔案在裡面
+
+ *= require 'user_form'
  *= require_self
  */
+
+ /* assets pipeline */
