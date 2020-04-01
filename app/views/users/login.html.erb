@@ -1,19 +1,20 @@
 <h1>User Login</h1>
 
-<%= form_for(User.new, url: '/sign_up', method: 'get') do |f| %>
+
+<%= form_for(@user, url: login_path, method: 'post') do |f| %>
 
     <div>
       <%= f.label :email%>
       <%= f.text_field :email %>
     </div>
+
     <div> 
       <%= f.label :password , "password"%>
       <%= f.password_field :password %>     
     </div>
+
     <div>
-      <%= f.submit "註冊"%>
+      <%= f.submit "Login"%>
     </div>
     
-    
-
 <%end%>

@@ -1,19 +1,36 @@
 class UsersController < ApplicationController
   def login
+    @user = User.new() # 為了讓form_for 可以正常展開
   end
 
   def sign_up
     @user = User.new
   end
 
+  def sign_in
+    # 查資料庫
+    # select * from users #where email = ? and password = ?
+    # find_by 找一筆資料而已 nil
+    # where 可以一次找到很多資料 []
+    user = User.find_by(email: user_params[:email], 
+                        password: user_params[:password])
+
+    if user
+      session[:hello] = user.email
+      redirect_to root_path
+    else
+      redirect_to login_path
+    end
+  end
+
   def registration
       # 新增使用者 & 自動幫他登入
       @user = User.new(user_params)
+      
       if @user.save 
-      #成功
+      session[:hello] = @user.email        #幫忙登入 
       # TODO:密碼加密 
-      # TODO:幫忙登入
-        redirect_to '/' 
+        redirect_to root_path # '/'
       else
       #失敗
       #失敗通常不會轉址到原來頁面，這樣之前填的東西全部要再重填
@@ -21,8 +38,11 @@ class UsersController < ApplicationController
         render :sign_up      
         # redirect_to '/sign_up' 繞一圈主回來 
       end
-      # (email: user[:password_confirm], password: user[:password])
-    # render html: params[:user]
+  end
+
+  def logout
+    session[:hello] = nil
+    redirect_to root_path
   end
 
   private 

@@ -1,0 +1,7 @@
+<% if session[:hello] %>
+  <%= session[:hello] %> | 
+  <%= link_to "登出", logout_path , method: "delete" %>
+<% else %>
+  <a href="/sign_up">Sign up</a>
+  <a href="/login">Login</a>
+<% end %>
