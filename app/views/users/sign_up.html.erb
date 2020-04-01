@@ -1,9 +1,9 @@
 <h1>User Sign up </h1>
-
-<%= form_for(User.new, url: '/sign_up', method: 'post') do |f| %>
+<%# 原本為 User.new 把它搬到 sign_up @user 才可以重複使用 %>
+<%= form_for(@user, url: '/sign_up', method: 'post') do |f| %>
 
     <div>
-      <%= f.label :email%>
+      <%= f.label :email %>
       <%= f.text_field :email %>
     </div>
     <div> 
