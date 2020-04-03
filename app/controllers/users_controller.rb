@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def login
-    @user = User.new() # 為了讓form_for 可以正常展開
+    @user = User.new # 為了讓form_for 可以正常展開
   end
 
   def sign_up
