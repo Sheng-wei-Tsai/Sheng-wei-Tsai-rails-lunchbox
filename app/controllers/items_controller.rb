@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @category = @item.category.name
   end
 
   def new

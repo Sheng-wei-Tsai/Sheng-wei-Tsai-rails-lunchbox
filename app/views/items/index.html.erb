@@ -6,8 +6,9 @@
   <% @items.each do |item| %>
     <li>
       <%= link_to item.name, item_path(item.id)%>
-      <%= link_to "edit", edit_item_path(item.id) %>
-      <%= link_to "delete", item_path(item.id), 
+      <%= item.category.name %>
+      <%= link_to "修改", edit_item_path(item.id) %>
+      <%= link_to "刪除", item_path(item.id), 
                   method: 'delete', data: { 
                   confirm: 'Are you Sure?'
                   } %>
