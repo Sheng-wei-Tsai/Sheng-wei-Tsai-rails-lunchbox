@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :check_login
   def login
     @user = User.new # 為了讓form_for 可以正常展開
   end

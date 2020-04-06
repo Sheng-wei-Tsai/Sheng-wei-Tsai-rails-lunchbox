@@ -28,6 +28,9 @@ class ItemsController < ApplicationController
   end
 
   def update
+
+
+
     if @item.update(item_params)
       redirect_to items_path, notice: "update your order Successfully"
     else
@@ -48,6 +51,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit( :name,
                                   :description,
                                   :price,
+                                  :category_id, #放行進來
                                   :spec )
   end
 end
