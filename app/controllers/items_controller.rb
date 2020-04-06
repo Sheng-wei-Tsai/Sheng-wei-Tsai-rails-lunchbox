@@ -1,14 +1,11 @@
 class ItemsController < ApplicationController
-
-rescue_from ActiveRecord::RecordNotFound, 
-            with: :active_record_not_found 
+  before_action :find_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.all # select * from ..
   end
 
   def show
-    @item = Item.find(params[:id]) 
   end
 
   def new
@@ -27,25 +24,31 @@ rescue_from ActiveRecord::RecordNotFound,
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to items_path, notice: "update your order Successfully"
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    item = Item.find(params[:id])
-    item.destroy
+    @item.destroy
     redirect_to items_path, notice: 'deleted successfully'
   end
 
   private
+  def find_item
+    @item = Item.find(params[:id])
+  end
   def item_params
     params.require(:item).permit( :name,
                                   :description,
                                   :price,
                                   :spec )
   end
-
-  def active_record_not_found
-    render  file: 'public/404.html', 
-            status: 404,
-            layout: false
-  end
-
-
 end
+
