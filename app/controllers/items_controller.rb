@@ -52,6 +52,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit( :name,
                                   :description,
                                   :price,
+                                  :cover,
                                   :category_id, #放行進來
                                   :spec )
   end
