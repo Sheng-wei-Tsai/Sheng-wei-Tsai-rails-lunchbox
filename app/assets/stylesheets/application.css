@@ -12,8 +12,8 @@
  *
  * require_tree  . 怕裡面有其他雜雜的檔案在裡面
 
- *= require 'user_form'
+ /* *= require 'user_form'
  *= require_self
- */
+ */ 
 
  /* assets pipeline */
