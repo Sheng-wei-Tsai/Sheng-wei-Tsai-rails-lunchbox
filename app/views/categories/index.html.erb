@@ -12,7 +12,6 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
-        <td><%= link_to '新增', category %></td>
         <td><%= link_to '編輯', edit_category_path(category) %></td>
         <td><%= link_to '刪除', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

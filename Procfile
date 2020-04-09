@@ -1,2 +1,4 @@
-bento: bin/rails server -p 3000
+bento: bin/rails server
 heavy: bin/webpack-dev-server
+
+

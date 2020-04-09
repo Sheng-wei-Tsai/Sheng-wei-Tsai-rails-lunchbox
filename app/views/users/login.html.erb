@@ -4,12 +4,12 @@
 <%= form_for(@user, url: login_path, method: 'post') do |f| %>
 
     <div>
-      <%= f.label :email %>
+      <%= f.label :email ,"信箱："%>
       <%= f.text_field :email %>
     </div>
 
     <div> 
-      <%= f.label :password , "password"%>
+      <%= f.label :password , "密碼："%>
       <%= f.password_field :password %>     
     </div>
 

@@ -34,8 +34,7 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /categories/1
-  # PATCH/PUT /categories/1.json
+
   def update
     respond_to do |format|
       if @category.update(category_params)
@@ -48,8 +47,7 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # DELETE /categories/1
-  # DELETE /categories/1.json
+  
   def destroy
     @category.destroy
     respond_to do |format|
