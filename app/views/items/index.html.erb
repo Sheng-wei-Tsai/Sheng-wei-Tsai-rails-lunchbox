@@ -12,22 +12,18 @@
           <%= image_tag item.cover.variant(resize_to_limit: [200, 200]) if item.cover.attached? %>
           <div class="card-body">
             <h5 class="card-title">
-              <%= link_to item.name, item_path(item.id)%>
+              <%= item.category.name %> <%= link_to item.name, item_path(item.id)%>
             </h5>
-            <h5>
+            <p>
               <%= link_to "修改", edit_item_path(item.id), class: "btn btn-primary" %>
               <%= link_to "刪除", item_path(item.id), 
                   method: 'delete',class: "btn btn-danger" , data: { 
                   confirm: 'Are you Sure?'
                   } %>
-            </h5>
-
+            </p>
             </div>
           </div>
         
-        
-        <%= item.category.name %>
-       
       </div>
     <% end %>
 </div>
