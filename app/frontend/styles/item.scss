@@ -1,9 +1,14 @@
 .item {
   .card {
     display: flex;
-    align-items: center;
-    .cover-image {
-      width: 100%;
+    .cover-img {
+      overflow: hidden;
+      // position: relative;
+      img {
+        width: 100%;
+        // position: absolute;
+        // top: 0;
+      }
     }
   }
 }

@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all # select * from ..
+    @items = Item.all
   end
 
   def show
@@ -29,11 +29,8 @@ class ItemsController < ApplicationController
   end
 
   def update
-
-
-
     if @item.update(item_params)
-      redirect_to items_path, notice: "update your order Successfully"
+      redirect_to items_path, notice: "成功更新餐點"
     else
       render :edit
     end
@@ -41,12 +38,14 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to items_path, notice: 'deleted successfully'
+    # @item.update(deleted_at: Time.now)
+    redirect_to items_path, notice: '成功刪除餐點'
   end
 
   private
   def find_item
     @item = Item.find(params[:id])
+    # @item = Item.find_by!(id: params[:id], deleted_at: nil )
   end
   def item_params
     params.require(:item).permit( :name,
