@@ -6,9 +6,9 @@
 
 <div class="row my-3">
     <% @items.each do |item| %>
-      <div class="col-4">
+      <div class="col-4 item">
         <div class="card my-3">
-          <%= image_tag item.cover.variant(resize_to_limit: [200, 200]) if item.cover.attached? %>
+          <%= image_tag item.cover.variant(resize_to_limit: [200, 200]), class: 'cover-image' if item.cover.attached? %>
           <div class="card-body">
             <h5 class="card-title">
               <%= item.category.name %> <%= link_to item.name, item_path(item.id)%>
