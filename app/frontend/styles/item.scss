@@ -2,7 +2,8 @@
   .card {
     display: flex;
     .cover-img {
-      overflow: hidden;
+      height: 200px;
+      // overflow: hidden;
       // position: relative;
       img {
         width: 100%;

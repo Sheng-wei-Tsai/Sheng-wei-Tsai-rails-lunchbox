@@ -6,12 +6,11 @@
 
 <div class="row my-3">
     <% @items.each do |item| %>
-      <div class="col-4 item">
+      <div class="col-12 col-md-4 item">
         <div class="card my-3">
-          <div class="cover-img">
-            <!-- <%= image_tag item.cover.variant(resize_to_limit: [200, 200]), class: 'cover-image' if item.cover.attached? %> -->
-            <img src="https://picsum.photos/600/400?random=2">
-            
+          <div class="cover-img overflow-hidden">
+            <%= image_tag item.cover.variant(resize_to_limit: [500, 500])  if item.cover.attached? %>
+            <%# <img src="https://picsum.photos/1000/600?random=2" class> %>
           </div>
           
           <div class="card-body">
@@ -30,7 +29,6 @@
             </p>
             </div>
           </div>
-        
       </div>
     <% end %>
 </div>
