@@ -1,5 +1,5 @@
 class Cart 
-  attr_reader :items
+
   def initialize
     @items = []
   end 
@@ -23,5 +23,21 @@ class Cart
     @items.empty?
   end
 
+  def items
+    @items
+  end
+  
+  def total
+    # 0 是初始值, reduce 累加歸納用
+    @items.reduce(0) { |sum, item| sum + item.total }
+    # @item.sum {|item| item.total }
+    # tmp = 0
+    # @items.each do |item|
+    #   tmp += item.total
+    # end
+    # return tmp
+
+
+  end
 
 end
