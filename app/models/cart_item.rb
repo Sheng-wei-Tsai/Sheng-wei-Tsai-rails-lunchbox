@@ -1,7 +1,3 @@
-# CartItem.new(3, 1)
-# CartItem.new(3)
-# 多考慮預設值
-
 class CartItem
   attr_reader :item_id, :quantity
   #在外部希望可以讀取 
