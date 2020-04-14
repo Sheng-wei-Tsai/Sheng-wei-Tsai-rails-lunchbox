@@ -12,7 +12,8 @@ RSpec.describe Cart, type: :model do
       # Act
       cart.add_item(1)
       # Assert
-      expect(cart.empty?).to be false  
+      # expect(cart.empty?).to be false 
+      expect(cart).not_to be_empty
     end
 
     it "加了相同種類的商品到購物車裡，購買項目（CartItem）並不會增加，但商品的數量會改變" do
@@ -29,9 +30,9 @@ RSpec.describe Cart, type: :model do
       # Arrange (安排購物車還有商品)
       # cart = Cart.new
       # cat1 = Category.create(name: 'Cat1')
-      # cat1 = FactoryBot.create(:category)
-      i1 = FactoryBot.create(:item)
-      i2 = FactoryBot.create(:item)
+      # cat1 = create(:category)
+      i1 = create(:item)
+      i2 = create(:item)
       # i1 = cat1.items.create(name: 'item1', price: 100 )
       # i2 = cat1.items.create(name: 'item2', price: 90 )
       # Act
@@ -46,8 +47,8 @@ RSpec.describe Cart, type: :model do
       # Arrange (安排購物車還有商品)
       # cart = Cart.new
       
-      i1 = FactoryBot.create(:item, price: 50)
-      i2 = FactoryBot.create(:item, price: 100)
+      i1 = create(:item, price: 50)
+      i2 = create(:item, price: 100)
 
       # Act
       3.times { cart.add_item(i1.id) }
@@ -61,8 +62,8 @@ RSpec.describe Cart, type: :model do
       # Arrange
       # cart = Cart.new
 
-      i1 = FactoryBot.create(:item, price: 50)
-      i2 = FactoryBot.create(:item, price: 100)
+      i1 = create(:item, price: 50)
+      i2 = create(:item, price: 100)
       
       # Act
       3.times { cart.add_item(i1.id) }
@@ -82,8 +83,8 @@ RSpec.describe Cart, type: :model do
       # Arrange
       # cart = Cart.new
 
-      i1 = FactoryBot.create(:item, price: 50)
-      i2 = FactoryBot.create(:item, price: 100)
+      i1 = create(:item, price: 50)
+      i2 = create(:item, price: 100)
       
       # Act
       3.times { cart.add_item(i1.id) }
