@@ -1,5 +1,5 @@
 class Cart 
-
+  attr_reader :items
   def initialize
     @items = []
   end 
@@ -11,10 +11,10 @@ class Cart
     # found.class => CartItem 你是誰生出來的
     if found_item
       # 增加數量
-      found_item.increment! # 增加數量
+      found_item.increment! 
     else
       # 找不到 創造一個給他
-      @items << CartItem.new(item_id, 1)
+      @items << CartItem.new(item_id)
     end
 
   end
@@ -23,8 +23,5 @@ class Cart
     @items.empty?
   end
 
-  def items
-    @items
-  end
 
 end
