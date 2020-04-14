@@ -18,5 +18,9 @@ class CartItem
   def item
     Item.find(@item_id)
   end
+
+  def total
+    item.price * @quantity 
+  end
   
 end
