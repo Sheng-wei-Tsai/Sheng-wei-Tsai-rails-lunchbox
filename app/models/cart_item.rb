@@ -22,5 +22,6 @@ class CartItem
   def total
     item.price * @quantity 
   end
+
   
 end

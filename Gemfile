@@ -39,6 +39,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0'
   #  factory_bot_rails
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
+  #A gem providing "time travel" and "time freezing" capabilities, making it dead simple to test time-dependent code. It provides a unified method to mock Time.now, Date.today, and DateTime.now in a single call.
+  gem 'timecop', '~> 0.9.1'
   
 end
 
