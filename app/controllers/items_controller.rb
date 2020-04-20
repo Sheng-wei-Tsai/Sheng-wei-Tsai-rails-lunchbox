@@ -6,8 +6,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @category = @item.category.name
     @comment = Comment.new
+    @comments = @item.comments.includes(:user) #eager loading
   end
 
   def new
