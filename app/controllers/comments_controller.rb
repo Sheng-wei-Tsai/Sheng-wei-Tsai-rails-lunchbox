@@ -12,7 +12,10 @@ class CommentsController < ApplicationController
     # @comment.item = @item
 
     if @comment.save
-      redirect_to item_path(params[:item_id]), notice: 'ok'
+      # app/views/comments/create.html.erb
+      # app/views/comments/create.js.erb
+      # render json: {name: '123', age: 18 }
+      # redirect_to item_path(params[:item_id]), notice: 'ok'
     else
       render 'items/show', notice: 'failed'
     end
