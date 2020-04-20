@@ -1,4 +1,7 @@
-<h1><%= @item.name %><%= @item.price %>元</h1>
+<h1><%= @item.name %>(<%= @item.price %>元)
+    <i class="far fa-heart"></i>
+</h1>
+
 
 <h3>留言</h3>
 <%= form_for(@comment, url: item_comments_path(@item), remote: true ) do |form| %>
@@ -6,14 +9,12 @@
     <%= form.text_area :content, class: 'form-control' %>
   </div>
 
-  <%= form.submit class: 'btn btn-success' %>
+  <%= form.submit class: 'btn btn-info' %>
 <% end %>
 
 <hr>
+<div id="comments"></div>
 
 <% @comments.each do |comment| %>
-  <div class="alert alert-dark" role="alert">
-    <p><%= comment.content %></p>
-    <p class="mb-0">posted by <%= comment.user.email %> / <%= comment.created_at %></p>
-  </div>
+  <%= render 'comments/comment', comment: comment %>
 <% end %>
