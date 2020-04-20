@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       
       if @user.save 
-      session[:hello] = @user.email        #幫忙登入 
+      session[:hello] = @user.id        #幫忙登入 
       # TODO:密碼加密 
         redirect_to root_path # '/'
       else
