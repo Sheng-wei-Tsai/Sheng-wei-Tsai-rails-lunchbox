@@ -2,7 +2,18 @@ Rails.application.routes.draw do
   resources :categories
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
-  resources :items # 8條路徑
+  resources :items  do# 8條路徑
+    resources :comments, only: [:create]
+    # /items/:item_id/comments/new
+    # /items/:item_id/comments/create
+  end
+  # resources :comments
+  # # /comments 看到所有留言
+  # # /comments/:id 
+  # # /comments/new
+  # # /comments/create
+  # # .comments/edit
+
   # user
   # get "/", to: "welcome#index"
   # 泛用型的寫法

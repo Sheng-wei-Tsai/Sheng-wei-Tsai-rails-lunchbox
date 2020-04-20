@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   def show
     @category = @item.category.name
+    @comment = Comment.new
   end
 
   def new
