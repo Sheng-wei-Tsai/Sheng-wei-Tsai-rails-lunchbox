@@ -1,7 +1,11 @@
-<h1><%= @item.name %>(<%= @item.price %>元)
+
+<h1 data-controller="hello" ><%= @item.name %>(<%= @item.price %>元)
+  <a href='#' class="btn btn-danger" data-action="hello#heart" >
     <i class="far fa-heart"></i>
+  </a>
 </h1>
 
+<%= image_tag @item.cover.variant(resize_to_limit: [800, 500]), class: 'cover-image' if @item.cover.attached? %>
 
 <h3>留言</h3>
 <%= form_for(@comment, url: item_comments_path(@item), remote: true ) do |form| %>
