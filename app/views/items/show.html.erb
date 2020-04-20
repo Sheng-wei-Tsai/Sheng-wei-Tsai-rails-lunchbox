@@ -1,7 +1,7 @@
 
-<h1 data-controller="hello" ><%= @item.name %>(<%= @item.price %>元)
-  <a href='#' class="btn btn-danger" data-action="hello#heart" >
-    <i class="far fa-heart"></i>
+<h1 data-controller="item" ><%= @item.name %>(<%= @item.price %>元)
+  <a href='#' class="btn btn-danger" data-action="item#heart" >
+    <i id="ccc" class="far fa-heart" data-target="item.icon"></i>
   </a>
 </h1>
 
