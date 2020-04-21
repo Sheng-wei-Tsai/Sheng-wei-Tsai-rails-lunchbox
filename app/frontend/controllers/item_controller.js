@@ -8,7 +8,7 @@
 // </div>
 
 import { Controller } from "stimulus"
-
+import axios from "axios"
 export default class extends Controller {
   static targets = ["icon"]
 
@@ -19,17 +19,26 @@ export default class extends Controller {
 
   heart(e) {
     e.preventDefault();
+
+    axios.post('/api/v1/items/4/favoirte')
+    .then(function(resp) {
+      console.log(resp);
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+    
     // console.log('Heart is clicked');
-    if (this.clicked) {
-      this.iconTarget.classList.remove('far'); // s = solid
-      this.iconTarget.classList.add('fas');    // r = regular
-      this.clicked = false;
-    } else {
-      this.iconTarget.classList.remove('fas');
-      this.iconTarget.classList.add('far');
-      this.clicked = true;
-    }
-  }
+  //   if (this.clicked) {
+  //     this.iconTarget.classList.remove('far'); // s = solid
+  //     this.iconTarget.classList.add('fas');    // r = regular
+  //     this.clicked = false;
+  //   } else {
+  //     this.iconTarget.classList.remove('fas');
+  //     this.iconTarget.classList.add('far');
+  //     this.clicked = true;
+  //   }
+  // }
 
 
 }
