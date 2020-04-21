@@ -28,7 +28,7 @@
     <% if current_user %>
       你好，<%= current_user.email %>
     <ul class="navbar-nav">
-      <%= link_to '#', class: 'nav-link' do %>
+      <%= link_to cart_path, class: 'nav-link' do %>
       Cart <i class='fas fa-shopping-cart'></i> <%= current_user%>
     
       <li class="nav-item">
