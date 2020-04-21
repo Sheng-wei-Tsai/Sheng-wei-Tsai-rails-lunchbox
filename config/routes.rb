@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   post '/sign_up', to: "users#registration"
   # get post put patch delete (現在瀏覽器只有get/post 這兩個動作)
   # 方法   controller 見一個檔案
+  
   namespace :api do
     namespace :v1 do
       resources :items, only: [] do

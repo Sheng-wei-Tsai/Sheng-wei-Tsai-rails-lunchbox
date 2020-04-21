@@ -42,6 +42,8 @@ group :development, :test do
   #A gem providing "time travel" and "time freezing" capabilities, making it dead simple to test time-dependent code. It provides a unified method to mock Time.now, Date.today, and DateTime.now in a single call.
   gem 'timecop', '~> 0.9.1'
   
+  gem 'hirb-unicode', '~> 0.0.5'
+  
 end
 
 group :development do
