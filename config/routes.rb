@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :items  do# 8條路徑
+    member do
+      post :add_to_cart
+    end
     resources :comments, only: [:create]
   end
   # resources :comments
@@ -13,6 +16,12 @@ Rails.application.routes.draw do
   # # /comments/create
   # # .comments/edit
 
+  #cart
+  # post "/abc/id", to "cart#add", as: :cc # 請你幫我做一個path 出來/
+  resource :cart, only: [:show, :destroy] # 做出單數的東西/ rescource 沒加s
+  
+  #/users/edit
+  #/usrs/3/edit
   # user
   # get "/", to: "welcome#index"
   # 泛用型的寫法

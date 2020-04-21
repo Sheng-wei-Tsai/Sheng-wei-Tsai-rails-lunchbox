@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, 
             with: :active_record_not_found 
             
-  helper_method :current_user # 讓全站的地方都可用得到
+  helper_method :current_user, :current_cart # 讓全站的地方都可用得到
   # include UserHelper 在view helper 
   before_action :check_login
 
@@ -21,5 +21,9 @@ class ApplicationController < ActionController::Base
   def current_user
     # id
     User.find_by(id: session[:hello])
+  end
+
+  def current_cart
+    @_ca1213 ||= Cart.from_hash(session[:carty])
   end
 end
