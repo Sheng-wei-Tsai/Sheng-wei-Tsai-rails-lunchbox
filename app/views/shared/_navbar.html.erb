@@ -26,11 +26,16 @@
     </ul>
 
     <% if current_user %>
-      你好，<%= current_user.email %>
     <ul class="navbar-nav">
-      <%= link_to cart_path, class: 'nav-link' do %>
-      Cart <i class='fas fa-shopping-cart'></i> <%= current_user%>
-    
+      <li>
+        <%= link_to cart_path, class: 'nav-link' do %>
+          購物車 <i class="fas fa-shopping-cart"></i> 
+        <%= current_cart.items.count %>
+        <% end %>
+      </li>
+      <li>
+        <a href="#" class="nav-link">你好，<%= current_user.email %></a>
+      </li>
       <li class="nav-item">
         <%= link_to "登出", logout_path, method: 'delete', class: 'nav-link' %>
       </li>

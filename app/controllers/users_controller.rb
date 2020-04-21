@@ -42,7 +42,8 @@ class UsersController < ApplicationController
   end
 
   def logout
-    session[:hello] = nil
+    # session[:hello] = nil
+    reset_session
     redirect_to root_path
   end
 
