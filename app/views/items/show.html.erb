@@ -1,19 +1,23 @@
 
 <h1 data-controller="item" ><%= @item.name %>(<%= @item.price %>元)
-  <a href='#' class="btn btn-danger" data-action="item#heart" >
+  <a href='#' class="btn btn-dark" data-action="item#heart" >
     <i id="ccc" class="far fa-heart" data-target="item.icon"></i>
   </a>
 </h1>
 
 <%= image_tag @item.cover.variant(resize_to_limit: [800, 500]), class: 'cover-image' if @item.cover.attached? %>
 
-<h3>留言</h3>
+<div data-controller="comment">
+  <h3>留言</h3>
 <%= form_for(@comment, url: item_comments_path(@item), remote: true ) do |form| %>
   <div class="form-group">
-    <%= form.text_area :content, class: 'form-control' %>
+    <%= form.text_area :content,
+                        class: 'form-control',
+                        data: {target: 'comment.content', 
+                              action: 'keyup->comment#check'} %>
   </div>
 
-  <%= form.submit class: 'btn btn-info' %>
+  <%= form.submit class: 'btn btn-info',disabled: true, data: {target: 'comment.submit'} %>
 <% end %>
 
 <hr>
@@ -22,3 +26,5 @@
 <% @comments.each do |comment| %>
   <%= render 'comments/comment', comment: comment %>
 <% end %>
+</div>
+
