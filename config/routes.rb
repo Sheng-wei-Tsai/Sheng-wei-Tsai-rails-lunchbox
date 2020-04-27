@@ -18,8 +18,11 @@ Rails.application.routes.draw do
 
   #cart
   # post "/abc/id", to "cart#add", as: :cc # 請你幫我做一個path 出來/
-  resource :cart, only: [:show, :destroy] # 做出單數的東西/ rescource 沒加s
-  
+  resource :cart, only: [:show, :destroy]  do# 做出單數的東西/ rescource 沒加s
+    collection do
+      get :checkout
+    end
+  end
   #/users/edit
   #/usrs/3/edit
   # user

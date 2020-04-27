@@ -52,6 +52,7 @@ class Cart
       Cart.new
     end
   end
+
   
   def to_hash
     # items = [
