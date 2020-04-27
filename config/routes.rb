@@ -19,10 +19,19 @@ Rails.application.routes.draw do
   #cart
   # post "/abc/id", to "cart#add", as: :cc # 請你幫我做一個path 出來/
   resource :cart, only: [:show, :destroy]  do# 做出單數的東西/ rescource 沒加s
-    collection do
+    collection do  # 新增購物車的結帳頁面
       get :checkout
     end
   end
+
+# 
+  resource :orders, only: [:index, :show, :create] do
+    member do
+      delete :cancel
+    end
+  end
+
+
   #/users/edit
   #/usrs/3/edit
   # user
