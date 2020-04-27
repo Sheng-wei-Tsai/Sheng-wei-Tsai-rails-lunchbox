@@ -24,6 +24,11 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem "braintree", "~> 2.101.0"
+gem 'figaro', '~> 1.0'
+# 狀態機
+gem 'aasm', '~> 5.0', '>= 5.0.8'
+
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 

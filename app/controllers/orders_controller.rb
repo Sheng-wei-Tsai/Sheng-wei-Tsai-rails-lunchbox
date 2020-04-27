@@ -12,10 +12,27 @@ class OrdersController < ApplicationController
       @order.order_items << item
       end
 
+
+
       if @order.save
+
         # 刷卡
-        # 清空購物車
-        redirect_to root_path, notice: 'ok'
+
+        result = gateway.transaction.sale(
+          amount: current_cart.total,
+          payment_method_nonce: params[:order][:nonce]
+        )
+
+        if result.success?
+          # 成功
+          @order.pay!
+          session[:carty] = nil
+          redirect_to root_path, notice: '交易成功'
+        else
+          # 失敗
+          redirect_to root_path, alert: '交易失敗'
+        end
+      
       else
         redirect_to root_path, notice: 'not ok'
       end
