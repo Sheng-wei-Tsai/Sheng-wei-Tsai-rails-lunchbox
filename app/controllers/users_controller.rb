@@ -13,11 +13,11 @@ class UsersController < ApplicationController
     # select * from users #where email = ? and password = ?
     # find_by 找一筆資料而已 nil
     # where 可以一次找到很多資料 []
-    user = User.find_by(email: user_params[:email], 
-                        password: user_params[:password])
-
-    if user
-      session[:hello] = user.email
+    user = User.find_by(email: user_params[:email])
+    
+    # 有什麼資安問題呢？
+    if user && user.authenticate(user_params[:password])
+      session[:hello] = user.id
       redirect_to root_path
     else
       redirect_to login_path
